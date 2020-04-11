@@ -8,6 +8,8 @@ before_install:
 
 # commands to run our test suite
 script:
+    - echo $AWS_ACCESS_KEY
+    - echo $AWS_SECRET_KEY
     - docker run -e CI=true shivamarora/docker-react npm run test -- --coverage
 
 # commands to run for deployment
@@ -15,7 +17,7 @@ deploy:
     provider: elasticbeanstalk
     region: "us-east-2"
     app: "docker-react"
-    env: "DockerReact-env"
+    env: "DockerReact-env-1"
     bucket_name: "elasticbeanstalk-us-east-2-683682269864"
     bucket_path: "docker-react"
     on:
