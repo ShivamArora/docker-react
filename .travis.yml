@@ -4,8 +4,8 @@ services:
 
 # things to run before running the tests
 before_install:
-    - docker build -f Dockerfile.dev -t ShivamArora/docker-react .
+    - docker build -f Dockerfile.dev -t shivamarora/docker-react .
 
 # commands to run our test suite
 script:
-    - docker run -e CI=true ShivamArora/docker-react npm run test -- --coverage
+    - docker run -e CI=true shivamarora/docker-react npm run test -- --coverage
