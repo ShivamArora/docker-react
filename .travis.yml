@@ -4,7 +4,7 @@ services:
 
 # things to run before running the tests
 before_install:
-    - docker build -f Dockerfile -t shivamarora/docker-react .
+    - docker build -f Dockerfile.dev -t shivamarora/docker-react .
 
 # commands to run our test suite
 script:
@@ -16,8 +16,8 @@ script:
 deploy:
     provider: elasticbeanstalk
     region: "us-east-2"
-    app: "react-env-naman"
-    env: "ReactEnvNaman-env"
+    app: "docker-react"
+    env: "DockerReact-env"
     bucket_name: "elasticbeanstalk-us-east-2-683682269864"
     bucket_path: "docker-react-app"
     on:
